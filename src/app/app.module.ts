@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home.component';
 import { StudentsComponent } from './students/students.component';
 import { ProfileComponent } from './students/profile.component';
+import {ErrorGuardComponent} from './error.guard.component';
+import {ErrorCanActivateGuard} from './error.canactivate.guard';
 
 import {myRoutes} from './app.routes';
 import {DbService} from './students/db.service';
@@ -16,7 +18,8 @@ import {DbService} from './students/db.service';
     AppComponent,
     HomeComponent,
     StudentsComponent,
-    ProfileComponent
+    ProfileComponent,
+    ErrorGuardComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,7 @@ import {DbService} from './students/db.service';
     HttpModule,
     myRoutes
   ],
-  providers: [DbService],
+  providers: [ErrorCanActivateGuard, DbService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

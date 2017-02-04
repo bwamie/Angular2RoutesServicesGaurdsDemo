@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 export class DbService {
 
   public data: Object;
+
   constructor() {
     this.data = [
       { id: '1', name: 'Asaad Saad', email: 'asaad@mum.edu' },
@@ -17,13 +18,12 @@ export class DbService {
   }
 
   getStudent(id) {
-    console.log(id);
+    console.log(id+"******************");
     for (const student in this.data) {
       if (this.data[student].id == id) {
         return this.data[student];
       }
-
     }
+    return null;
   }
-
 }
